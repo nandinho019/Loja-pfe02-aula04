@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Seu Carrinho</h1>
+    <a href="index.html" class="carrinho-link">Voltar</a>
+  </header>
+
+  <main id="carrinho">
+  </main>
+  <div id="total"></div>
+  <button onclick="enviarPedido()">Enviar Pedido</button>
+
+  <script>
+    const container = document.getElementById("carrinho");
+    const totalDiv = document.getElementById("total");
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    function atualizarCarrinho() {
+      container.innerHTML = '';
+      let total = 0;
+
+      if (carrinho.length === 0) {
+        container.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        totalDiv.innerText = '';
+        return;
+      }
+
+      carrinho.forEach((item, i) => {
+        total += item.preco * item.quantidade;
+        container.innerHTML += `
+          <div class="card">
+            <img src="${item.imagem}" alt="${item.nome}" />
+            <h3>${item.nome}</h3>
+            <p>Preço: R$ ${item.preco.toFixed(2)}</p>
+            <p>Quantidade: 
+              <input type="number" min="1" value="${item.quantidade}" onchange="atualizarQuantidade(${i}, this.value)" />
+            </p>
+            <button onclick="removerDoCarrinho(${i})">Remover</button>
+          </div>
+        `;
+      });
+
+      totalDiv.innerText = `Total: R$ ${total.toFixed(2)}`;
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    }
+
+    function atualizarQuantidade(index, quantidade) {
+      quantidade = parseInt(quantidade);
+      if (quantidade <= 0) {
+        carrinho.splice(index, 1);
+      } else {
+        carrinho[index].quantidade = quantidade;
+      }
+      atualizarCarrinho();
+    }
+
+    function removerDoCarrinho(index) {
+      carrinho.splice(index, 1);
+      atualizarCarrinho();
+    }
+
+    function enviarPedido() {
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+      localStorage.removeItem("carrinho");
+      alert("Pedido enviado com sucesso!");
+      window.location.href = "index.html";
+    }
+
+    atualizarCarrinho();
+  </script>
+</body>
+</html>

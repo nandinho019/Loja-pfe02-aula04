@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "nome": "Tênis lindão",
+        "descricao": "O tênis mais lindo do mundo",
+        "preco": 200.00,
+        "peso": 0.5,
+        "frete": 0.1,
+        "imagem": "https://wellifabio.github.io/produtos-cards/assets/tenis1.png"
+    },
+    {
+        "id": 2,
+        "nome": "Tênis bunitinho",
+        "descricao": "O tênis mais bunitinho de hoje",
+        "preco": 180.00,
+        "peso": 0.5,
+        "frete": 0.1,
+        "imagem": "https://wellifabio.github.io/produtos-cards/assets/tenis2.png"
+    },
+    {
+        "id": 3,
+        "nome": "Bruzinha",
+        "descricao": "Camiseta branca simples",
+        "preco": 49.90,
+        "peso": 0.3,
+        "frete": 0.1,
+        "imagem": "https://wellifabio.github.io/produtos-cards/assets/camiseta1.png"
+    },
+    {
+        "id": 4,
+        "nome": "Camiseta Preta",
+        "descricao": "Camiseta pretinha básica",
+        "preco": 59.90,
+        "peso": 0.3,
+        "frete": 0.1,
+        "imagem": "https://wellifabio.github.io/produtos-cards/assets/camiseta2.png"
+    },
+    {
+        "id": 5,
+        "nome": "Calsa jeans masculino",
+        "descricao": "Calsa jeans masculino, azul básico",
+        "preco": 49.90,
+        "peso": 1.2,
+        "frete": 0.2,
+        "imagem": "https://wellifabio.github.io/produtos-cards/assets/calsa1.png"
+    },
+    {
+        "id": 6,
+        "nome": "Calsa jeans feminino",
+        "descricao": "Calsa jeans feminino, azul básico",
+        "preco": 49.90,
+        "peso": 0.9,
+        "frete": 0.2,
+        "imagem": "https://wellifabio.github.io/produtos-cards/assets/calsa2.png"
+    }
+    ]
