@@ -1,7 +1,6 @@
 const uri = './assets/dados.json';
 let produtos = [];
 
-// Função para buscar os dados do JSON
 fetch(uri)
   .then(resp => resp.json())
   .then(resp => {
@@ -10,11 +9,9 @@ fetch(uri)
   })
   .catch(err => console.error('Erro ao carregar os produtos:', err));
 
-// Função para exibir os cards na página
 function mostrarCards() {
   const main = document.querySelector('main');
-  main.innerHTML = ''; // Limpa o conteúdo antes de adicionar os cards
-
+  main.innerHTML = '';
   produtos.forEach(p => {
     main.innerHTML += `
       <div class="card">
@@ -26,8 +23,6 @@ function mostrarCards() {
     `;
   });
 }
-
-// Função para exibir os detalhes do produto no modal
 function mostrarDetalhes(id) {
   const produto = produtos.find(p => p.id === id);
   if (!produto) {
@@ -58,7 +53,6 @@ function mostrarDetalhes(id) {
   };
 }
 
-// Fecha o modal ao clicar fora dele
 window.onclick = function (event) {
   const modal = document.getElementById('modal');
   if (event.target === modal) {
@@ -66,7 +60,6 @@ window.onclick = function (event) {
   }
 };
 
-// Função para adicionar um produto ao carrinho
 function adicionarAoCarrinho(id) {
   const produto = produtos.find(p => p.id === id);
   if (!produto) {
@@ -94,12 +87,9 @@ function adicionarAoCarrinho(id) {
   fecharModal();
 }
 
-// Função para fechar o modal
 function fecharModal() {
   document.getElementById('modal').style.display = 'none';
 }
-
-// Função para atualizar o carrinho
 if (document.getElementById('carrinho')) {
   const container = document.getElementById('carrinho');
   const totalDiv = document.getElementById('total');
